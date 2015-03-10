@@ -1,8 +1,5 @@
-FROM jenkins
-#COPY jenkins_plugins.txt /tmp/jenkins_plugins.txt
-#RUN /usr/local/bin/plugins.sh /tmp/jenkins_plugins.txt
-USER root
-#RUN rm /tmp/jenkins_plugins.txt
-RUN groupadd -g 142 docker
-RUN addgroup -a jenkins docker
-USER jenkins
+FROM debian
+RUN useradd -d /home/jenkins_slave
+RUN echo jenkins_slave:jpass | chpasswd
+RUN apt-get update && apt-get install -y openssh-server openjdk-7-jre docker.io
+CMD ["/etc/init.d/ssh","start"]
