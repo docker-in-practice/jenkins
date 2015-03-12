@@ -2,7 +2,7 @@
 echo "Starting up sshd"
 mkdir -p /var/run/sshd
 /usr/sbin/sshd -D &
-HOST_IP=$(ip route | ^default | awk '{print $3}')
+HOST_IP=$(ip route | grep ^default | awk '{print $3}')
 DOCKER_IP=${DOCKER_IP:-$HOST_IP}
 JENKINS_PORT=${JENKINS_PORT:-8080}
 JENKINS_LABELS=${JENKINS_LABELS:-""}
