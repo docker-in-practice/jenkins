@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "Starting up sshd"
-mkdir -p /var/run/sshd
 /usr/sbin/sshd -D &
 HOST_IP=$(ip route | grep ^default | awk '{print $3}')
 DOCKER_IP=${DOCKER_IP:-$HOST_IP}
