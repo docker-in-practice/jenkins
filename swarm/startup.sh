@@ -5,7 +5,7 @@ mkdir -p /var/run/sshd
 HOST_IP=$(ip route | grep ^default | awk '{print $3}')
 DOCKER_IP=${DOCKER_IP:-$HOST_IP}
 JENKINS_PORT=${JENKINS_PORT:-8080}
-JENKINS_LABELS=${JENKINS_LABELS:-""}
+JENKINS_LABELS=${JENKINS_LABELS:-swarm}
 echo "Starting up swarm client with args:"
 echo "$@"
 echo "and env:"
