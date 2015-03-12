@@ -1,0 +1,10 @@
+jenkins_server:
+  - image: dockerinpractice/jenkins
+  - ports: "8080:8080"
+  - ports: "50000:50000"
+  - ports: "2222:22"
+
+jenkins_swarm_client:
+  - image: dockerinpractice/jenkins_swarm
+  - ports: "8081:8080"
+  - ports: "2223:22"
